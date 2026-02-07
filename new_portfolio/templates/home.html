@@ -33,5 +33,26 @@
     {% endfor %}
   </div>
 </section>
+<!-- Contact Section -->
+<section class="contact">
+  <h3>Get In Touch</h3>
+
+  <!-- Show success or error message -->
+  {% if success_message %}
+    <p class="form-message">{{ success_message }}</p>
+  {% endif %}
+
+  <!-- Contact Form -->
+   <form method="POST" action="/">
+    <!-- Name Field -->
+     <input type="text" name="name" placeholder="Your Name" required>
+    <!-- Email Field -->
+     <input type="email" name="email" placeholder="Your Email" required>
+    <!-- Message Field -->
+     <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+    <!-- Submit Button -->
+     <button type="submit" class="cta-button">Send Message</button>
+   </form>
+</section>
 
 {% endblock %}

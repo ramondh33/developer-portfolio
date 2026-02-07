@@ -275,3 +275,51 @@ body {
 .project-card:hover::before {
     opacity: 1;
 }
+/* -----------------------------
+   CONTACT SECTION
+   ----------------------------- */
+.contact {
+    padding: 80px 40px;
+    max-width: 600px;
+    margin: auto;
+    text-align: center;
+}
+
+.contact h3 {
+    margin-bottom: 30px;
+}
+
+/* -----------------------------
+   FORM ELEMENTS
+   ----------------------------- */
+.contact form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.contact input,
+.contact textarea {
+    background: var(--bg-card);
+    border: 1px solid rgba(76, 201, 240, 0.3);
+    border-radius: 6px;
+
+    padding: 14px;
+    color: var(--text-main);
+    font-size: 1rem;
+}
+
+/* Remove default focus outline and add glow */
+.contact input:focus,
+.contact textarea:focus {
+    outline: none;
+    box-shadow: 0 0 15px var(--neon-glow);
+}
+
+/* -----------------------------
+   FORM MESSAGE
+   ----------------------------- */
+.form-message {
+    margin-bottom: 20px;
+    color: var(--neon-blue);
+}

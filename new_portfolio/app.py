@@ -1,5 +1,5 @@
 # Import flask and render_template from the flask module to create a web application and render HTML templates.
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 
 # Create an instance of the Flask class, which will be our WSGI application.
 app = Flask(__name__)
@@ -23,14 +23,31 @@ projects = [
     }
 ]
 
-# Define a route for the root URL ("/") and associate it with the home function. When a user visits the root URL, the home function will be called, which will render and return the 'home.html' template to the user's browser.
-@app.route('/')
+# Home route GET + POST.
+@app.route('/', methods=['GET', 'POST'])
 def home():
-    # Render the 'home.html' template and return it as the response to the user's request.
-    return render_template('home.html', projects=projects)
+    success_message = None
+
+    # This block runs only when the form is submitted.
+    if request.method == 'POST':
+        # Get form values by name attributes
+        name = request.form.get('name')
+        email = request.form.get('email')
+        message = request.form.get('message')
+
+        # Simple validation 
+        if name and email and message:
+            # Print to terminal (test for now, later send email or save to database)
+            print(f"New contact message: {name}, {email}, {message}")
+            success_message = "Thank you for your message! I'll get back to you soon."
+        else:
+            success_message = "Please fill in all fields before submitting."
+    
+    # Render page and send data to HTML.
+    return render_template('home.html', projects=projects, success_message=success_message)
 
 # Make sure the app runs only when we execute app.py directly.
 if __name__ == '__main__':
 
     # Run the Flask application in debug mode, which provides helpful error messages and automatically reloads the server when code changes are detected.
-    app.run(debug=True)
+    app.run()

@@ -1,0 +1,277 @@
+/* -----------------------------
+   CSS VARIABLES (COLOR SYSTEM)
+   ----------------------------- */
+:root {
+    --bg-main: #0b0f1a;          /* Main dark background */
+    --bg-card: #12182b;          /* Card background */
+    --neon-blue: #4cc9f0;        /* Accent color */
+    --neon-glow: rgba(76, 201, 240, 0.5);
+    --text-main: #e6e8f0;        /* Main text color */
+    --text-muted: #9aa4bf;       /* Secondary text */
+}
+
+/* -----------------------------
+   GLOBAL STYLES
+   ----------------------------- */
+body {
+    margin: 0;
+    font-family: "Segoe UI", sans-serif;
+    background: var(--bg-main);
+    color: var(--text-main);
+}
+
+/* -----------------------------
+   NAVBAR (glass + glow)
+   ----------------------------- */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 20px 40px;
+
+    background: rgba(18, 24, 43, 0.6); /* semi-transparent */
+    backdrop-filter: blur(10px);
+
+    border-bottom: 1px solid var(--neon-blue);
+    box-shadow: 0 0 20px var(--neon-glow);
+}
+
+.logo {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: var(--neon-blue);
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-main);
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: var(--neon-blue);
+}
+/* -----------------------------
+   NAV LINK UNDERLINE ANIMATION
+   ----------------------------- */
+.nav-links a {
+    position: relative;
+}
+
+.nav-links a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+
+    width: 0;
+    height: 2px;
+    background: var(--neon-blue);
+
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+
+/* -----------------------------
+   HERO SECTION
+   ----------------------------- */
+.hero {
+    text-align: center;
+    padding: 120px 20px;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+.hero h2 {
+    color: var(--neon-blue);
+    font-weight: 400;
+}
+
+.hero p {
+    color: var(--text-muted);
+    max-width: 600px;
+    margin: 20px auto;
+}
+
+/* -----------------------------
+   BUTTONS
+   ----------------------------- */
+/* -----------------------------
+   CTA BUTTON – BASE
+   ----------------------------- */
+.cta-button {
+    position: relative;
+    display: inline-block;
+
+    margin-top: 30px;
+    padding: 15px 32px;
+
+    color: var(--neon-blue);
+    border: 1px solid var(--neon-blue);
+    border-radius: 6px;
+
+    text-decoration: none;
+    overflow: hidden;
+
+    box-shadow: 0 0 15px var(--neon-glow);
+    transition: color 0.3s ease, background 0.3s ease;
+}
+
+/* -----------------------------
+   CTA BUTTON – HOVER
+   ----------------------------- */
+.cta-button:hover {
+    background: var(--neon-blue);
+    color: #000;
+}
+
+/* -----------------------------
+   CTA BUTTON – PULSE EFFECT
+   ----------------------------- */
+.cta-button::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background: radial-gradient(
+        circle,
+        rgba(76, 201, 240, 0.6),
+        transparent 60%
+    );
+
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.cta-button:hover::after {
+    opacity: 1;
+}
+
+
+/* -----------------------------
+   PROJECT CARDS
+   ----------------------------- */
+.projects {
+    padding: 60px 40px;
+}
+
+/* -----------------------------
+   PROJECT CARD – BASE STATE
+   ----------------------------- */
+.project-card {
+    position: relative; /* Needed for pseudo-elements */
+    background: var(--bg-card);
+    padding: 25px;
+    border-radius: 12px;
+
+    border: 1px solid rgba(76, 201, 240, 0.25);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
+
+    /* Smooth animation for hover effects */
+    transition:
+        transform 0.4s ease,
+        box-shadow 0.4s ease;
+}
+
+/* -----------------------------
+   PROJECT CARD – HOVER STATE
+   ----------------------------- */
+.project-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 0 35px var(--neon-glow);
+}
+
+/* -----------------------------
+   PROJECT GRID LAYOUT
+   ----------------------------- */
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+/* -----------------------------
+   PROJECT CARD STYLING
+   ----------------------------- */
+.project-card {
+    background: var(--bg-card);
+    padding: 25px;
+    border-radius: 12px;
+
+    border: 1px solid rgba(76, 201, 240, 0.25);
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.7);
+
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 0 30px var(--neon-glow);
+}
+
+.project-card h4 {
+    color: var(--neon-blue);
+    margin-bottom: 10px;
+}
+
+.project-card p {
+    color: var(--text-muted);
+    margin-bottom: 15px;
+}
+
+.tech {
+    font-size: 0.85rem;
+    color: var(--neon-blue);
+    opacity: 0.8;
+}
+/* -----------------------------
+   NEON BORDER SWEEP EFFECT
+   ----------------------------- */
+.project-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    border-radius: 12px;
+    padding: 1px;
+
+    background: linear-gradient(
+        120deg,
+        transparent,
+        var(--neon-blue),
+        transparent
+    );
+
+    opacity: 0;
+    transition: opacity 0.4s ease;
+
+    /* This masks the gradient to look like a border */
+    -webkit-mask:
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask:
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+    mask-composite: exclude;
+}
+
+/* Show the border glow on hover */
+.project-card:hover::before {
+    opacity: 1;
+}

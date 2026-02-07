@@ -46,6 +46,16 @@ def home():
     # Render page and send data to HTML.
     return render_template('home.html', projects=projects, success_message=success_message)
 
+# Route for the about page.
+@app.route('/about')
+def about():
+    return render_template('about.html')
+
+# Route for the projects page.
+@app.route('/projects')
+def projects_page():
+    return render_template('projects.html')
+
 # Make sure the app runs only when we execute app.py directly.
 if __name__ == '__main__':
 

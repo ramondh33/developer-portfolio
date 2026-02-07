@@ -28,7 +28,7 @@
     <div class="project-card">
       <h4>{{ project.title }}</h4>
       <p>{{ project.description }}</p>
-      <span class="tech">{{ project.tech }}</span>  
+      <span class="tech">{{ project.tech }}</span>
     </div>
     {% endfor %}
   </div>
@@ -39,20 +39,25 @@
 
   <!-- Show success or error message -->
   {% if success_message %}
-    <p class="form-message">{{ success_message }}</p>
+  <p class="form-message">{{ success_message }}</p>
   {% endif %}
 
   <!-- Contact Form -->
-   <form method="POST" action="/">
+  <form method="POST" action="/">
     <!-- Name Field -->
-     <input type="text" name="name" placeholder="Your Name" required>
+    <input type="text" name="name" placeholder="Your Name" required />
     <!-- Email Field -->
-     <input type="email" name="email" placeholder="Your Email" required>
+    <input type="email" name="email" placeholder="Your Email" required />
     <!-- Message Field -->
-     <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+    <textarea
+      name="message"
+      placeholder="Your Message"
+      rows="5"
+      required
+    ></textarea>
     <!-- Submit Button -->
-     <button type="submit" class="cta-button">Send Message</button>
-   </form>
+    <button type="submit" class="cta-button">Send Message</button>
+  </form>
 </section>
 
 {% endblock %}

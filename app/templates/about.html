@@ -1,0 +1,55 @@
+{% extends "base.html" %} 
+
+{% block content %}
+
+<section class="about-section">
+
+    <!-- Profile Image -->
+    <div class="about-image">
+    <img src="{{ url_for('static', filename='images/profile.jpg') }}" alt="Ramon Hernandez">
+    </div>
+
+    <!-- About Section -->
+    <section class="hero">
+    <h1>About Me</h1>
+
+    <!-- Short Bio -->
+    <p>
+        I'm Ramon Hernandez, a passionate Python developer with a keen interest in
+        penetration testing. With a background in software development and a drive
+        to explore the world of cybersecurity, I am constantly learning and growing
+        my skills. I thrive in remote work environments and am eager to contribute
+        to innovative projects that challenge me.
+    </p>
+    </section>
+
+    <section class="projects">
+    <h3>What I Do:</h3>
+    <div class="project-grid">
+        <div class="project-card">
+        <h4>Python Development</h4>
+        <p>
+            I build efficient and scalable applications using Python, leveraging
+            frameworks like Flask and Django to create web applications and APIs.
+        </p>
+        </div>
+        <div class="project-card">
+        <h4>Penetration Testing</h4>
+        <p>
+            I am actively learning penetration testing techniques, including
+            vulnerability assessment, exploitation, and ethical hacking to enhance
+            security skills.
+        </p>
+        </div>
+        <div class="project-card">
+        <h4>Remote Work</h4>
+        <p>
+            I excel in remote work environments, utilizing effective communication
+            and collaboration tools to stay connected with teams and deliver
+            high-quality results.
+        </p>
+        </div>
+    </div>
+    </section>
+</section>
+{% endblock %}
